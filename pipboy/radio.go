@@ -1,32 +1,30 @@
 package pipboy
 
-
 import (
 	"github.com/rivo/tview"
 )
 
 type radioScreen struct {
-  screen tview.Primitive
-  name   string
+	screen tview.Primitive
+	name   string
 }
 
-
 func newRadioScreen() Screen {
-  return &radioScreen{
-    screen: nil,
-    name:   "",
-  }
+	return &radioScreen{
+		screen: nil,
+		name:   "",
+	}
 }
 
 func (rs *radioScreen) GetScreen() *tview.Primitive {
-  return &rs.screen
+	return &rs.screen
 }
 
 func (rs *radioScreen) GetName() *string {
-  return &rs.name
+	return &rs.name
 }
 
-func (rs *radioScreen)  BuildScreen() {
+func (rs *radioScreen) BuildScreen() {
 	stationList := tview.NewList()
 	stationList.AddItem("Galaxy News Radio", "", '\n', nil)
 	stationList.AddItem("Enclave Radio", "", '\n', nil)
@@ -54,8 +52,8 @@ func (rs *radioScreen)  BuildScreen() {
 	grid.AddItem(notesTab, 1, 7, 1, 1, 0, 0, false)
 	grid.AddItem(radioTab, 1, 9, 1, 1, 0, 0, false)
 
-  rs.screen = grid
-  rs.name = "Radio"
+	rs.screen = grid
+	rs.name = "Radio"
 }
 
 func newTab(text string) *tview.TextView {
